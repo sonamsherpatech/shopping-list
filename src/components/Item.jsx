@@ -1,6 +1,6 @@
 function Item({ item }) {
   return (
-    <li>
+    <li className={item.bought ? "bought" : ""}>
       <input type="checkbox" />
       <span>{item.name}</span>
       <button>❌</button>

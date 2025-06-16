@@ -3,18 +3,23 @@ import Title from "./Title";
 import ShoppingForm from "./ShoppingForm";
 import List from "./List";
 
-const items = [
-  { id: 1, name: "Milk", bought: false },
-  { id: 2, name: "Curd", bought: false },
-  { id: 3, name: "Toothpaste", bought: false },
-];
+// const shoppingItems = [
+//   { id: 1, name: "Milk", bought: false },
+//   { id: 2, name: "Curd", bought: false },
+//   { id: 3, name: "Toothpaste", bought: true },
+// ];
 
 const App = () => {
-  // const [items, setItem] = useState();
+  const [items, setItems] = useState([]);
+
+  function handleAddItems(item) {
+    setItems((items) => [...items, item]);
+  }
+
   return (
     <div className="app">
       <Title />
-      <ShoppingForm />
+      <ShoppingForm onAddItems={handleAddItems} />
       <List items={items} />
     </div>
   );

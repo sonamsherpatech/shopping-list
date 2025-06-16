@@ -1,10 +1,14 @@
 import { useState } from "react";
 
-function ShoppingForm() {
+function ShoppingForm({ onAddItems }) {
   const [item, setItem] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (!item) return;
+    const newItem = { name: item, bought: false, id: Date.now() };
+    onAddItems(newItem);
+    setItem("");
   }
   return (
     <div className="shopping-form">
